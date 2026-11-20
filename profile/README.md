@@ -48,6 +48,20 @@ We build video world models that players can steer, edit and play in real time: 
 
 <sub>SCOPE and Incantation are joint projects with external collaborators.</sub>
 
+## Earlier work: image restoration in adverse conditions
+
+Yeying Jin's first-author work on restoring images taken at night and in bad weather, 2021–2024.
+
+| Project | In one line | Links |
+|---|---|---|
+| **Raindrop Clarity**<br><sub>A Dual-Focused Dataset for Day and Night Raindrop Removal · ECCV 2024</sub> | Benchmarks raindrop removal by day and night. | [arXiv](https://arxiv.org/abs/2407.16957) · [Code](https://github.com/YeyingLab/RaindropClarity) · [Challenge](https://lixinustc.github.io/CVPR-NTIRE2025-RainDrop-Competition.github.io/) |
+| **DeS3**<br><sub>Adaptive Attention-driven Self and Soft Shadow Removal using ViT Similarity · AAAI 2024</sub> | Removes self and soft shadows with diffusion. | [arXiv](https://arxiv.org/abs/2211.08089) · [Code](https://github.com/YeyingLab/DeS3_Deshadow) |
+| **Nighttime Dehaze**<br><sub>Enhancing Visibility in Nighttime Haze Images Using Guided APSF and Gradient Adaptive Convolution · ACM MM 2023</sub> | Clears haze and glow at night. | [arXiv](https://arxiv.org/abs/2308.01738) · [Code](https://github.com/YeyingLab/nighttime_dehaze) |
+| **S-Aware Network**<br><sub>Estimating Reflectance Layer from A Single Image: Integrating Reflectance Guidance and Shadow/Specular Aware Learning · AAAI 2023</sub> | Recovers reflectance free of shadows and highlights. | [arXiv](https://arxiv.org/abs/2211.14751) · [Code](https://github.com/YeyingLab/S-Aware-network) |
+| **Night Enhancement**<br><sub>Unsupervised Night Image Enhancement: When Layer Decomposition Meets Light-Effects Suppression · ECCV 2022</sub> | Brightens night images and suppresses glare. | [arXiv](https://arxiv.org/abs/2207.10564) · [Code](https://github.com/YeyingLab/night-enhancement) · [Demo](https://replicate.com/cjwbw/night-enhancement) |
+| **Fog Removal**<br><sub>Structure Representation Network and Uncertainty Feedback Learning for Dense Non-Uniform Fog Removal · ACCV 2022</sub> | Removes dense, uneven fog. | [arXiv](https://arxiv.org/abs/2210.03061) · [Code](https://github.com/YeyingLab/FogRemoval) |
+| **DC-ShadowNet**<br><sub>Single-Image Hard and Soft Shadow Removal Using Unsupervised Domain-Classifier Guided Network · ICCV 2021</sub> | Removes hard and soft shadows without paired data. | [arXiv](https://arxiv.org/abs/2207.10434) · [Code](https://github.com/YeyingLab/DC-ShadowNet-Hard-and-Soft-Shadow-Removal) |
+
 ## Join us
 
 We're hiring 6-month research interns in world models and coding agents, in Singapore and through [Tencent campus recruiting](https://join.qq.com/post_detail.html?postid=1210646470286783493) in China. [Details](https://zhuanlan.zhihu.com/p/2070315664162689467)

@@ -12,11 +12,7 @@
 
 </div>
 
-
-
 https://github.com/user-attachments/assets/e070b091-178b-4faf-be39-83f433563232
-
-
 
 Yeying Lab is led by [Yeying Jin](https://jinyeying.github.io/), Staff Researcher at Tencent and Adjunct Faculty at NUS ECE.
 We build video world models that players can steer, edit and play in real time: agents that run the game while a video model renders it, action and language control that stays spatially consistent, and NPCs that read the game state and react to players.

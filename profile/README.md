@@ -6,7 +6,7 @@
 
 [Homepage](https://jinyeying.github.io/) · [Join us](#join-us)
 
-**12 projects · 10 papers · 10 open-source codebases · 7 models · 6 datasets**
+**13 projects · 11 papers · 12 open-source codebases · 8 models · 6 datasets**
 
 [![Total stars](https://img.shields.io/github/stars/YeyingLab?style=social)](https://github.com/YeyingLab)
 
@@ -23,7 +23,7 @@ We build video world models that players can steer, edit and play in real time: 
 
 | Project | In one line | Links |
 |---|---|---|
-| **MaLiang** | Paint a map, and the world follows. | Coming soon |
+| **MaLiang**<br><sub>Painting Playable Game Worlds from Numbers</sub> | Paint a map, and the world follows. | [Code](https://github.com/YeyingLab/MaLiang) · [Model](https://github.com/YeyingLab/MaLiang/releases/tag/v1.0-models) |
 | **Wizard**<br><sub>Manipulate Any World in Real Time via Agentic Control</sub> | Manipulates any world in real time. | [arXiv](https://arxiv.org/abs/2610.40339) · [Project](https://wyzardwu.github.io/wizard/) · [Code](https://github.com/YeyingLab/Wizard) · [🤗 Model](https://huggingface.co/datasets/yuzhewu207/wizard/tree/main/weights) · [🤗 Data](https://huggingface.co/datasets/yuzhewu207/wizard) |
 | **UnboundRun** | Renders endless parkour at 40 fps. | Coming soon |
 | **GameCrafter**<br><sub>An Agentic Framework for Multi-Gameplay Game World Generation</sub> | Builds worlds from a prompt. | [Paper](https://github.com/TeaWhiteBro/GameCrafter/blob/main/paper/GameCrafter.pdf) · [Project](https://teawhite.cn/GameCrafter/) · [Code](https://github.com/TeaWhiteBro/GameCrafter) |
@@ -43,10 +43,16 @@ We build video world models that players can steer, edit and play in real time: 
 | Project | In one line | Links |
 |---|---|---|
 | **WorldMind**<br><sub>Decoupled Game World Model for State-Aware NPC Behavior</sub> | Makes NPCs reason, then act. | [arXiv](https://arxiv.org/abs/2608.21439) · [Project](https://teawhite.cn/worldmind_projectpage/) · [Code](https://github.com/TeaWhiteBro/WorldMind) |
-| **ReactiveGWM**<br><sub>Flexible Control and NPC Reactivity in Game World Models</sub> | Lets NPCs react to players. | [arXiv](https://arxiv.org/abs/2605.15256) · [Project](https://inv-wzq.github.io/ReactiveGWM/) · [Code](https://github.com/INV-WZQ/ReactiveGWM) · [🤗 Model](https://huggingface.co/INV-WZQ/ReactiveGWM-Models) · [🤗 Data](https://huggingface.co/datasets/INV-WZQ/ReactiveGWM-Datasets) |
+| **ReactiveGWM**<br><sub>Flexible Control and NPC Reactivity in Game World Models</sub> | Lets NPCs react to players. | [arXiv](https://arxiv.org/abs/2605.15256) · [Project](https://inv-wzq.github.io/ReactiveGWM/) · [Code](https://github.com/YeyingLab/ReactiveGWM) · [🤗 Model](https://huggingface.co/INV-WZQ/ReactiveGWM-Models) · [🤗 Data](https://huggingface.co/datasets/INV-WZQ/ReactiveGWM-Datasets) |
 | **StatePlay**<br><sub>State-Aware Game World Models for Mechanics-Consistent Generation</sub> | Models frames and game states. | [arXiv](https://arxiv.org/abs/2607.26754) · [Project](https://jimntu.github.io/stateplay_page/) · [Code](https://github.com/Jimntu/StatePlay) · [🤗 Model](https://huggingface.co/onepiece1999/StatePlay) · [🤗 Data](https://huggingface.co/datasets/onepiece1999/StatePlay-Dataset) |
 
 <sub>SCOPE and Incantation are joint projects with external collaborators.</sub>
+
+## Beyond games: video generation
+
+| Project | In one line | Links |
+|---|---|---|
+| **StoryEngine**<br><sub>A State-Grounded Agentic Framework for Video Storytelling</sub> | Turns a story into a multi-shot video. | [arXiv](https://arxiv.org/abs/2609.33627) · [Project](https://yeyinglab.github.io/StoryEngine/) · [Code](https://github.com/YeyingLab/StoryEngine) |
 
 ## Earlier work: image restoration in adverse conditions
 

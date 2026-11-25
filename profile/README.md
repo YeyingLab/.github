@@ -6,7 +6,7 @@
 
 [Homepage](https://jinyeying.github.io/) · [Join us](#join-us)
 
-**13 projects · 11 papers · 12 open-source codebases · 8 models · 6 datasets**
+**13 projects · 11 papers · 12 open-source codebases · 9 models · 6 datasets**
 
 [![Total stars](https://img.shields.io/github/stars/YeyingLab?style=social)](https://github.com/YeyingLab)
 
@@ -35,7 +35,7 @@ We build video world models that players can steer, edit and play in real time: 
 |---|---|---|
 | **SCOPE**<br><sub>Simulating Cross-game Operations in Playable Environments for FPS World Models</sub> | Learns first-person action control. | [arXiv](https://arxiv.org/abs/2605.23345) · [Project](https://z2tong.github.io/SCOPE/) · [Code](https://github.com/z2tong/SCOPE) · [🤗 Model](https://huggingface.co/zizhaotong/SCOPE) · [🤗 Data](https://huggingface.co/collections/zizhaotong/crossfps) |
 | **ActionRoPE**<br><sub>Action as Coordinates for Spatially Consistent Control in Planar-Camera Game World Models</sub> | Keeps revisited scenes stable. | [arXiv](https://arxiv.org/abs/2610.25861) · [Project](https://teawhite.cn/ActionRoPE/) · [Code](https://github.com/TeaWhiteBro/ActionRoPE) · [🤗 Model](https://huggingface.co/teawhite/ActionRoPE) |
-| **H3-World**<br><sub>Turning Language Understanding into World Control</sub> | Turns language into world control. | [arXiv](https://arxiv.org/abs/2609.01560) · [Project](https://danzer1xxxxchan.github.io/H3-World/) · [Code](https://github.com/Danzer1xxxxChan/H3-World) |
+| **H3-World**<br><sub>Turning Language Understanding into World Control</sub> | Turns language into world control. | [arXiv](https://arxiv.org/abs/2609.01560) · [Project](https://danzer1xxxxchan.github.io/H3-World/) · [Code](https://github.com/YeyingLab/H3-World) · [🤗 Model](https://huggingface.co/DANNY621/H3-World) |
 | **Incantation**<br><sub>Natural Language as the Action Interface for Multi-Entity Video World Models</sub> | Commands many characters in plain language. | [arXiv](https://arxiv.org/abs/2605.18601) · [Project](https://matrixteam-ai.github.io/pages/Incanation) · [Code](https://github.com/zhushangwen/Incantation) · [Play](https://www.reactor.inc/incantation) · [🤗 Model](https://huggingface.co/MatrixTeam/Incantation_preview_margit) · [🤗 Data](https://huggingface.co/datasets/MatrixTeam/incantation-elden-ring-scenes) |
 
 ## State-aware gameplay and NPC behavior

@@ -4,7 +4,7 @@
 
 **Real-time interactive game world models.** *Press a key, and the model draws the next frame of the game world.*
 
-[Homepage](https://jinyeying.github.io/) · [Join us](#join-us)
+[Homepage](https://jinyeying.github.io/) · [Agentic gameplay](#agentic-gameplay-and-real-time-world-editing) · [Action & language control](#spatially-consistent-action-and-language-control) · [NPC behavior](#state-aware-gameplay-and-npc-behavior) · [Agentic video](#beyond-games-agentic-video) · [Join us](#join-us)
 
 **13 projects · 11 papers · 12 open-source codebases · 9 models · 6 datasets**
 
@@ -21,38 +21,133 @@ We build video world models that players can steer, edit and play in real time: 
 
 ## Agentic gameplay and real-time world editing
 
-| Project | In one line | Links |
-|---|---|---|
-| **MaLiang**<br><sub>Painting Playable Game Worlds from Numbers</sub> | Paint a map, and the world follows. | [![Code](https://img.shields.io/github/stars/YeyingLab/MaLiang?style=flat&logo=github&label=Code%20%E2%98%85&color=f5c518&labelColor=24292f)](https://github.com/YeyingLab/MaLiang) · [Model](https://github.com/YeyingLab/MaLiang/releases/tag/v1.0-models) |
-| **Wizard**<br><sub>Manipulate Any World in Real Time via Agentic Control</sub> | Manipulates any world in real time. | [arXiv](https://arxiv.org/abs/2610.40339) · [Project](https://wyzardwu.github.io/wizard/) · [![Code](https://img.shields.io/github/stars/YeyingLab/Wizard?style=flat&logo=github&label=Code%20%E2%98%85&color=f5c518&labelColor=24292f)](https://github.com/YeyingLab/Wizard) · [🤗 Model](https://huggingface.co/datasets/yuzhewu207/wizard/tree/main/weights) · [🤗 Data](https://huggingface.co/datasets/yuzhewu207/wizard) |
-| **UnboundRun** | Renders endless parkour at 40 fps. | Coming soon |
-| **GameCrafter**<br><sub>An Agentic Framework for Multi-Gameplay Game World Generation</sub> | Builds worlds from a prompt. | [Paper](https://github.com/YeyingLab/GameCrafter/blob/main/paper/GameCrafter.pdf) · [Project](https://teawhite.cn/GameCrafter/) · [![Code](https://img.shields.io/github/stars/YeyingLab/GameCrafter?style=flat&logo=github&label=Code%20%E2%98%85&color=f5c518&labelColor=24292f)](https://github.com/YeyingLab/GameCrafter) |
-| **GameDirector**<br><sub>Decoupling Gameplay Logic from Rendering for Player-Configurable Game World Models</sub> | Splits logic from rendering. | [arXiv](https://arxiv.org/abs/2609.25652) · [Project](https://jimntu.github.io/gamedirector/) · [![Code](https://img.shields.io/github/stars/Jimntu/GameDirector_code?style=flat&logo=github&label=Code%20%E2%98%85&color=f5c518&labelColor=24292f)](https://github.com/Jimntu/GameDirector_code) · [🤗 Model](https://huggingface.co/onepiece1999/GameDirector) · [🤗 Data](https://huggingface.co/datasets/onepiece1999/GameDirector-Training-Data) |
+<table>
+<tr>
+<td width="50%" valign="top">
+<a href="https://github.com/YeyingLab/MaLiang"><img src="https://raw.githubusercontent.com/YeyingLab/.github/main/profile/assets/maliang.gif" width="100%" alt="MaLiang demo"></a>
+<p><b>MaLiang</b>&nbsp; <img src="https://img.shields.io/badge/Code_%26_models-released-2ea44f?style=flat-square" alt="Code and models released" align="absmiddle"><br><sub><i>Painting Playable Game Worlds from Numbers</i></sub></p>
+<p>Paint a map, and the world follows: a 4-step causal video model streams the game world in real time.</p>
+<p><a href="https://github.com/YeyingLab/MaLiang"><img src="https://img.shields.io/github/stars/YeyingLab/MaLiang?style=flat&logo=github&label=Code%20%E2%98%85&color=f5c518&labelColor=24292f" alt="Code" align="absmiddle"></a> · <a href="https://github.com/YeyingLab/MaLiang/releases/tag/v1.0-models">Model</a></p>
+</td>
+<td width="50%" valign="top">
+<a href="https://wyzardwu.github.io/wizard/"><img src="https://raw.githubusercontent.com/YeyingLab/.github/main/profile/assets/wizard.gif" width="100%" alt="Wizard demo"></a>
+<p><b>Wizard</b>&nbsp; <img src="https://img.shields.io/badge/arXiv-2026-b31b1b?style=flat-square" alt="arXiv 2026" align="absmiddle"><br><sub><i>Manipulate Any World in Real Time via Agentic Control</i></sub></p>
+<p>Reshape any world in plain language; a video model renders the edits at 24 FPS in 2 steps.</p>
+<p><sub>🎓 Co-first authors: <a href="https://nadia.sg/people/wu-yuzhe/">Yuzhe Wu</a>, <a href="https://jimntu.github.io/">Zijun Lin</a></sub></p>
+<p><a href="https://arxiv.org/abs/2610.40339">arXiv</a> · <a href="https://wyzardwu.github.io/wizard/">Project</a> · <a href="https://github.com/YeyingLab/Wizard"><img src="https://img.shields.io/github/stars/YeyingLab/Wizard?style=flat&logo=github&label=Code%20%E2%98%85&color=f5c518&labelColor=24292f" alt="Code" align="absmiddle"></a> · <a href="https://huggingface.co/datasets/yuzhewu207/wizard/tree/main/weights">🤗 Model</a> · <a href="https://huggingface.co/datasets/yuzhewu207/wizard">🤗 Data</a></p>
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+<a href="#"><img src="https://raw.githubusercontent.com/YeyingLab/.github/main/profile/assets/unboundrun.gif" width="100%" alt="UnboundRun demo"></a>
+<p><b>UnboundRun</b>&nbsp; <img src="https://img.shields.io/badge/Coming-soon-f0883e?style=flat-square" alt="Coming soon" align="absmiddle"></p>
+<p>Endless parkour in many art styles, rendered live at 40 fps.</p>
+<p><i>Code coming soon</i></p>
+</td>
+<td width="50%" valign="top">
+<a href="https://teawhite.cn/GameCrafter/"><img src="https://raw.githubusercontent.com/YeyingLab/.github/main/profile/assets/gamecrafter.gif" width="100%" alt="GameCrafter demo"></a>
+<p><b>GameCrafter</b>&nbsp; <img src="https://img.shields.io/badge/Preprint-2026-6e7781?style=flat-square" alt="Preprint 2026" align="absmiddle"><br><sub><i>An Agentic Framework for Multi-Gameplay Game World Generation</i></sub></p>
+<p>One prompt builds a multi-gameplay 3D game world; best overall score (87.77) on a ten-task benchmark.</p>
+<p><sub>🎓 Co-first authors: <a href="https://teawhite.cn/">Zhiyang Deng</a>, Xiyao Deng</sub></p>
+<p><a href="https://github.com/YeyingLab/GameCrafter/blob/main/paper/GameCrafter.pdf">Paper</a> · <a href="https://teawhite.cn/GameCrafter/">Project</a> · <a href="https://github.com/YeyingLab/GameCrafter"><img src="https://img.shields.io/github/stars/YeyingLab/GameCrafter?style=flat&logo=github&label=Code%20%E2%98%85&color=f5c518&labelColor=24292f" alt="Code" align="absmiddle"></a></p>
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+<a href="https://jimntu.github.io/gamedirector/"><img src="https://raw.githubusercontent.com/YeyingLab/.github/main/profile/assets/gamedirector.gif" width="100%" alt="GameDirector demo"></a>
+<p><b>GameDirector</b>&nbsp; <img src="https://img.shields.io/badge/arXiv-2026-b31b1b?style=flat-square" alt="arXiv 2026" align="absmiddle"><br><sub><i>Decoupling Gameplay Logic from Rendering for Player-Configurable Game World Models</i></sub></p>
+<p>An agent runs the rules, states and NPC tactics while a world model renders them: boss action quality +39.9%.</p>
+<p><sub>🎓 Co-first authors: <a href="https://jimntu.github.io/">Zijun Lin</a>, <a href="https://teawhite.cn/">Zhiyang Deng</a></sub></p>
+<p><a href="https://arxiv.org/abs/2609.25652">arXiv</a> · <a href="https://jimntu.github.io/gamedirector/">Project</a> · <a href="https://github.com/Jimntu/GameDirector_code"><img src="https://img.shields.io/github/stars/Jimntu/GameDirector_code?style=flat&logo=github&label=Code%20%E2%98%85&color=f5c518&labelColor=24292f" alt="Code" align="absmiddle"></a> · <a href="https://huggingface.co/onepiece1999/GameDirector">🤗 Model</a> · <a href="https://huggingface.co/datasets/onepiece1999/GameDirector-Training-Data">🤗 Data</a></p>
+</td>
+<td width="50%"></td>
+</tr>
+</table>
 
 ## Spatially consistent action and language control
 
-| Project | In one line | Links |
-|---|---|---|
-| **SCOPE**<br><sub>Simulating Cross-game Operations in Playable Environments for FPS World Models</sub> | Learns first-person action control. | [arXiv](https://arxiv.org/abs/2605.23345) · [Project](https://z2tong.github.io/SCOPE/) · [![Code](https://img.shields.io/github/stars/z2tong/SCOPE?style=flat&logo=github&label=Code%20%E2%98%85&color=f5c518&labelColor=24292f)](https://github.com/z2tong/SCOPE) · [🤗 Model](https://huggingface.co/zizhaotong/SCOPE) · [🤗 Data](https://huggingface.co/collections/zizhaotong/crossfps) |
-| **ActionRoPE**<br><sub>Action as Coordinates for Spatially Consistent Control in Planar-Camera Game World Models</sub> | Keeps revisited scenes stable. | [arXiv](https://arxiv.org/abs/2610.25861) · [Project](https://teawhite.cn/ActionRoPE/) · [![Code](https://img.shields.io/github/stars/YeyingLab/ActionRoPE?style=flat&logo=github&label=Code%20%E2%98%85&color=f5c518&labelColor=24292f)](https://github.com/YeyingLab/ActionRoPE) · [🤗 Model](https://huggingface.co/teawhite/ActionRoPE) |
-| **H3-World**<br><sub>Turning Language Understanding into World Control</sub> | Turns language into world control. | [arXiv](https://arxiv.org/abs/2609.01560) · [Project](https://danzer1xxxxchan.github.io/H3-World/) · [![Code](https://img.shields.io/github/stars/YeyingLab/H3-World?style=flat&logo=github&label=Code%20%E2%98%85&color=f5c518&labelColor=24292f)](https://github.com/YeyingLab/H3-World) · [🤗 Model](https://huggingface.co/DANNY621/H3-World) |
-| **Incantation**<br><sub>Natural Language as the Action Interface for Multi-Entity Video World Models</sub> | Commands many characters in plain language. | [arXiv](https://arxiv.org/abs/2605.18601) · [Project](https://matrixteam-ai.github.io/pages/Incanation) · [![Code](https://img.shields.io/github/stars/zhushangwen/Incantation?style=flat&logo=github&label=Code%20%E2%98%85&color=f5c518&labelColor=24292f)](https://github.com/zhushangwen/Incantation) · [Play](https://www.reactor.inc/incantation) · [🤗 Model](https://huggingface.co/MatrixTeam/Incantation_preview_margit) · [🤗 Data](https://huggingface.co/datasets/MatrixTeam/incantation-elden-ring-scenes) |
-
-## State-aware gameplay and NPC behavior
-
-| Project | In one line | Links |
-|---|---|---|
-| **WorldMind**<br><sub>Decoupled Game World Model for State-Aware NPC Behavior</sub> | Makes NPCs reason, then act. | [arXiv](https://arxiv.org/abs/2608.21439) · [Project](https://teawhite.cn/worldmind_projectpage/) · [![Code](https://img.shields.io/github/stars/YeyingLab/WorldMind?style=flat&logo=github&label=Code%20%E2%98%85&color=f5c518&labelColor=24292f)](https://github.com/YeyingLab/WorldMind) |
-| **ReactiveGWM**<br><sub>Flexible Control and NPC Reactivity in Game World Models</sub> | Lets NPCs react to players. | [arXiv](https://arxiv.org/abs/2605.15256) · [Project](https://inv-wzq.github.io/ReactiveGWM/) · [![Code](https://img.shields.io/github/stars/YeyingLab/ReactiveGWM?style=flat&logo=github&label=Code%20%E2%98%85&color=f5c518&labelColor=24292f)](https://github.com/YeyingLab/ReactiveGWM) · [🤗 Model](https://huggingface.co/INV-WZQ/ReactiveGWM-Models) · [🤗 Data](https://huggingface.co/datasets/INV-WZQ/ReactiveGWM-Datasets) |
-| **StatePlay**<br><sub>State-Aware Game World Models for Mechanics-Consistent Generation</sub> | Models frames and game states. | [arXiv](https://arxiv.org/abs/2607.26754) · [Project](https://jimntu.github.io/stateplay_page/) · [![Code](https://img.shields.io/github/stars/Jimntu/StatePlay?style=flat&logo=github&label=Code%20%E2%98%85&color=f5c518&labelColor=24292f)](https://github.com/Jimntu/StatePlay) · [🤗 Model](https://huggingface.co/onepiece1999/StatePlay) · [🤗 Data](https://huggingface.co/datasets/onepiece1999/StatePlay-Dataset) |
+<table>
+<tr>
+<td width="50%" valign="top">
+<a href="https://z2tong.github.io/SCOPE/"><img src="https://raw.githubusercontent.com/YeyingLab/.github/main/profile/assets/scope.gif" width="100%" alt="SCOPE demo"></a>
+<p><b>SCOPE</b>&nbsp; <img src="https://img.shields.io/badge/arXiv-2026-b31b1b?style=flat-square" alt="arXiv 2026" align="absmiddle"><br><sub><i>Simulating Cross-game Operations in Playable Environments for FPS World Models</i></sub></p>
+<p>An FPS world model trained on CrossFPS, the first multi-game FPS dataset: 69K clips, 7 titles, 10-DoF controls.</p>
+<p><sub>🎓 First author: <a href="https://github.com/z2tong">Zizhao Tong</a></sub></p>
+<p><a href="https://arxiv.org/abs/2605.23345">arXiv</a> · <a href="https://z2tong.github.io/SCOPE/">Project</a> · <a href="https://github.com/z2tong/SCOPE"><img src="https://img.shields.io/github/stars/z2tong/SCOPE?style=flat&logo=github&label=Code%20%E2%98%85&color=f5c518&labelColor=24292f" alt="Code" align="absmiddle"></a> · <a href="https://huggingface.co/zizhaotong/SCOPE">🤗 Model</a> · <a href="https://huggingface.co/collections/zizhaotong/crossfps">🤗 Data</a></p>
+</td>
+<td width="50%" valign="top">
+<a href="https://teawhite.cn/ActionRoPE/"><img src="https://raw.githubusercontent.com/YeyingLab/.github/main/profile/assets/actionrope.gif" width="100%" alt="ActionRoPE demo"></a>
+<p><b>ActionRoPE</b>&nbsp; <img src="https://img.shields.io/badge/arXiv-2026-b31b1b?style=flat-square" alt="arXiv 2026" align="absmiddle"><br><sub><i>Action as Coordinates for Spatially Consistent Control in Planar-Camera Game World Models</i></sub></p>
+<p>Actions become world-coordinate rotary positions: 66% less revisit drift, on 1.3B–33B backbones.</p>
+<p><sub>🎓 First author: <a href="https://teawhite.cn/">Zhiyang Deng</a></sub></p>
+<p><a href="https://arxiv.org/abs/2610.25861">arXiv</a> · <a href="https://teawhite.cn/ActionRoPE/">Project</a> · <a href="https://github.com/YeyingLab/ActionRoPE"><img src="https://img.shields.io/github/stars/YeyingLab/ActionRoPE?style=flat&logo=github&label=Code%20%E2%98%85&color=f5c518&labelColor=24292f" alt="Code" align="absmiddle"></a> · <a href="https://huggingface.co/teawhite/ActionRoPE">🤗 Model</a></p>
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+<a href="https://danzer1xxxxchan.github.io/H3-World/"><img src="https://raw.githubusercontent.com/YeyingLab/.github/main/profile/assets/h3world.gif" width="100%" alt="H3-World demo"></a>
+<p><b>H3-World</b>&nbsp; <img src="https://img.shields.io/badge/arXiv-2026-b31b1b?style=flat-square" alt="arXiv 2026" align="absmiddle"><br><sub><i>Turning Language Understanding into World Control</i></sub></p>
+<p>Turns a video model's language understanding into character and camera control, training only 0.199% of parameters.</p>
+<p><sub>🎓 Co-first authors: <a href="https://danzer1xxxxchan.github.io/">Danze Chen</a>, <a href="https://inv-wzq.github.io/">Zeqing Wang</a></sub></p>
+<p><a href="https://arxiv.org/abs/2609.01560">arXiv</a> · <a href="https://danzer1xxxxchan.github.io/H3-World/">Project</a> · <a href="https://github.com/YeyingLab/H3-World"><img src="https://img.shields.io/github/stars/YeyingLab/H3-World?style=flat&logo=github&label=Code%20%E2%98%85&color=f5c518&labelColor=24292f" alt="Code" align="absmiddle"></a> · <a href="https://huggingface.co/DANNY621/H3-World">🤗 Model</a></p>
+</td>
+<td width="50%" valign="top">
+<a href="https://matrixteam-ai.github.io/pages/Incanation"><img src="https://raw.githubusercontent.com/YeyingLab/.github/main/profile/assets/incantation.gif" width="100%" alt="Incantation demo"></a>
+<p><b>Incantation</b>&nbsp; <img src="https://img.shields.io/badge/arXiv-2026-b31b1b?style=flat-square" alt="arXiv 2026" align="absmiddle"><br><sub><i>Natural Language as the Action Interface for Multi-Entity Video World Models</i></sub></p>
+<p>Command many characters in plain language: 89% cross-entity transfer success vs. 43% for action-ID baselines.</p>
+<p><sub>🎓 First author: <a href="https://github.com/zhushangwen">Shangwen Zhu</a></sub></p>
+<p><a href="https://arxiv.org/abs/2605.18601">arXiv</a> · <a href="https://matrixteam-ai.github.io/pages/Incanation">Project</a> · <a href="https://github.com/zhushangwen/Incantation"><img src="https://img.shields.io/github/stars/zhushangwen/Incantation?style=flat&logo=github&label=Code%20%E2%98%85&color=f5c518&labelColor=24292f" alt="Code" align="absmiddle"></a> · <a href="https://www.reactor.inc/incantation">Play</a> · <a href="https://huggingface.co/MatrixTeam/Incantation_preview_margit">🤗 Model</a> · <a href="https://huggingface.co/datasets/MatrixTeam/incantation-elden-ring-scenes">🤗 Data</a></p>
+</td>
+</tr>
+</table>
 
 <sub>SCOPE and Incantation are joint projects with external collaborators.</sub>
 
+## State-aware gameplay and NPC behavior
+
+<table>
+<tr>
+<td width="50%" valign="top">
+<a href="https://teawhite.cn/worldmind_projectpage/"><img src="https://raw.githubusercontent.com/YeyingLab/.github/main/profile/assets/worldmind.gif" width="100%" alt="WorldMind demo"></a>
+<p><b>WorldMind</b>&nbsp; <img src="https://img.shields.io/badge/arXiv-2026-b31b1b?style=flat-square" alt="arXiv 2026" align="absmiddle"><br><sub><i>Decoupled Game World Model for State-Aware NPC Behavior</i></sub></p>
+<p>The first decoupled game world model for NPC behavior, from understanding to generation; preferred in ~70% of comparisons.</p>
+<p><sub>🎓 First author: <a href="https://teawhite.cn/">Zhiyang Deng</a></sub></p>
+<p><a href="https://arxiv.org/abs/2608.21439">arXiv</a> · <a href="https://teawhite.cn/worldmind_projectpage/">Project</a> · <a href="https://github.com/YeyingLab/WorldMind"><img src="https://img.shields.io/github/stars/YeyingLab/WorldMind?style=flat&logo=github&label=Code%20%E2%98%85&color=f5c518&labelColor=24292f" alt="Code" align="absmiddle"></a></p>
+</td>
+<td width="50%" valign="top">
+<a href="https://inv-wzq.github.io/ReactiveGWM/"><img src="https://raw.githubusercontent.com/YeyingLab/.github/main/profile/assets/reactivegwm.gif" width="100%" alt="ReactiveGWM demo"></a>
+<p><b>ReactiveGWM</b>&nbsp; <img src="https://img.shields.io/badge/arXiv-2026-b31b1b?style=flat-square" alt="arXiv 2026" align="absmiddle"><br><sub><i>Flexible Control and NPC Reactivity in Game World Models</i></sub></p>
+<p>NPCs follow Offense / Defense / Control strategies and transfer zero-shot to unseen games.</p>
+<p><sub>🎓 First author: <a href="https://inv-wzq.github.io/">Zeqing Wang</a></sub></p>
+<p><a href="https://arxiv.org/abs/2605.15256">arXiv</a> · <a href="https://inv-wzq.github.io/ReactiveGWM/">Project</a> · <a href="https://github.com/YeyingLab/ReactiveGWM"><img src="https://img.shields.io/github/stars/YeyingLab/ReactiveGWM?style=flat&logo=github&label=Code%20%E2%98%85&color=f5c518&labelColor=24292f" alt="Code" align="absmiddle"></a> · <a href="https://huggingface.co/INV-WZQ/ReactiveGWM-Models">🤗 Model</a> · <a href="https://huggingface.co/datasets/INV-WZQ/ReactiveGWM-Datasets">🤗 Data</a></p>
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+<a href="https://jimntu.github.io/stateplay_page/"><img src="https://raw.githubusercontent.com/YeyingLab/.github/main/profile/assets/stateplay.gif" width="100%" alt="StatePlay demo"></a>
+<p><b>StatePlay</b>&nbsp; <img src="https://img.shields.io/badge/arXiv-2026-b31b1b?style=flat-square" alt="arXiv 2026" align="absmiddle"><br><sub><i>State-Aware Game World Models for Mechanics-Consistent Generation</i></sub></p>
+<p>Generates frames together with game states (health, meters, timers): +18.6% mechanics fidelity.</p>
+<p><sub>🎓 First author: <a href="https://jimntu.github.io/">Zijun Lin</a></sub></p>
+<p><a href="https://arxiv.org/abs/2607.26754">arXiv</a> · <a href="https://jimntu.github.io/stateplay_page/">Project</a> · <a href="https://github.com/Jimntu/StatePlay"><img src="https://img.shields.io/github/stars/Jimntu/StatePlay?style=flat&logo=github&label=Code%20%E2%98%85&color=f5c518&labelColor=24292f" alt="Code" align="absmiddle"></a> · <a href="https://huggingface.co/onepiece1999/StatePlay">🤗 Model</a> · <a href="https://huggingface.co/datasets/onepiece1999/StatePlay-Dataset">🤗 Data</a></p>
+</td>
+<td width="50%"></td>
+</tr>
+</table>
+
 ## Beyond games: agentic video
 
-| Project | In one line | Links |
-|---|---|---|
-| **StoryEngine**<br><sub>A State-Grounded Agentic Framework for Video Storytelling</sub> | Turns a story into a multi-shot video. | [arXiv](https://arxiv.org/abs/2609.33627) · [Project](https://yeyinglab.github.io/StoryEngine/) · [![Code](https://img.shields.io/github/stars/YeyingLab/StoryEngine?style=flat&logo=github&label=Code%20%E2%98%85&color=f5c518&labelColor=24292f)](https://github.com/YeyingLab/StoryEngine) |
+<table>
+<tr>
+<td width="50%" valign="top">
+<a href="https://yeyinglab.github.io/StoryEngine/"><img src="https://raw.githubusercontent.com/YeyingLab/.github/main/profile/assets/storyengine.gif" width="100%" alt="StoryEngine demo"></a>
+<p><b>StoryEngine</b>&nbsp; <img src="https://img.shields.io/badge/arXiv-2026-b31b1b?style=flat-square" alt="arXiv 2026" align="absmiddle"><br><sub><i>A State-Grounded Agentic Framework for Video Storytelling</i></sub></p>
+<p>Turns a story into a multi-shot video, with every shot grounded in an explicit story state.</p>
+<p><sub>🎓 Co-first authors: <a href="https://github.com/wwwTaylor">Yingrui Wang</a>, <a href="https://inv-wzq.github.io/">Zeqing Wang</a></sub></p>
+<p><a href="https://arxiv.org/abs/2609.33627">arXiv</a> · <a href="https://yeyinglab.github.io/StoryEngine/">Project</a> · <a href="https://github.com/YeyingLab/StoryEngine"><img src="https://img.shields.io/github/stars/YeyingLab/StoryEngine?style=flat&logo=github&label=Code%20%E2%98%85&color=f5c518&labelColor=24292f" alt="Code" align="absmiddle"></a></p>
+</td>
+<td width="50%"></td>
+</tr>
+</table>
 
 ## Join us
 

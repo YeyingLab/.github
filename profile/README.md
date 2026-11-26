@@ -103,8 +103,6 @@ Yeying Lab is led by [Yeying Jin](https://jinyeying.github.io/) (Tencent · NUS)
 </tr>
 </table>
 
-<sub>SCOPE and Incantation are joint projects with external collaborators.</sub>
-
 ## State-aware gameplay and NPC behavior
 
 <table>

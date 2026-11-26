@@ -2,8 +2,9 @@
 
 GitHub's image proxy often times out on shields.io, so the README does not
 link to shields.io for numbers. Instead it shows SVG files stored in this repo
-(profile/badges/<slug>.svg). This script looks up each number, renders the badge
-once through shields.io, and saves the SVG. The README itself never changes.
+(profile/badges/<slug>.svg). This script looks up each number and rewrites it in
+the stored SVG (a brand-new badge is rendered once on shields.io). The README
+itself never changes.
 
 The README tells the script what each badge counts:
 
@@ -11,7 +12,11 @@ The README tells the script what each badge counts:
   <a href="https://huggingface.co/..."><img src=".../profile/badges/hfdl-data-....svg">     dataset downloads (all time)
   <a href="https://huggingface.co/..."><img src=".../profile/badges/hfdl-model-....svg">    model downloads (all time)
   <a href="https://huggingface.co/..."><img src=".../profile/badges/hflike-model-....svg">  model likes
-  [![Total stars](.../profile/badges/orgstars-ORG.svg)](https://github.com/ORG)             total org stars
+  <a href="https://huggingface.co/papers/ID"><img src=".../profile/badges/hfpaper-ID.svg">  Hugging Face paper upvotes
+  <a href="https://github.com/ORG"><img src=".../profile/badges/orgstars-ORG.svg">          total org stars
+  <img src=".../profile/badges/sumhfdl-data-....svg">    all-time dataset downloads over every HF link in the README
+  <img src=".../profile/badges/sumhfdl-model-....svg">   all-time model downloads over every HF link in the README
+  <img src=".../profile/badges/sumhfpaper-....svg">      paper upvotes over every HF paper link in the README
 
 If a lookup or render fails, the old SVG stays. Run: python3 scripts/update_badges.py
 """
@@ -36,6 +41,8 @@ STYLES = {
     "orgstars": ("GitHub stars", "f5c518", "logo=github&labelColor=24292f"),
     "sumhfdl-data": ("🤗 Dataset downloads", "ffcc4d", "labelColor=24292f"),
     "sumhfdl-model": ("🤗 Model downloads", "ffcc4d", "labelColor=24292f"),
+    "hfpaper": ("🤗 Paper ▲", "ffcc4d", "labelColor=24292f"),
+    "sumhfpaper": ("🤗 Paper upvotes", "ffcc4d", "labelColor=24292f"),
 }
 
 
@@ -84,6 +91,16 @@ def hf_value(kind, rid, field):
 
 def hf_count(href, field):
     return sum(hf_value(kind, rid, field) for kind, rid in hf_repos(href))
+
+
+def paper_upvotes(href):
+    pid = urllib.parse.urlparse(href).path.strip("/").split("/")[1]
+    return int(get_json(f"https://huggingface.co/api/papers/{pid}").get("upvotes") or 0)
+
+
+def paper_total(text):
+    links = set(re.findall(r'href="(https://huggingface\.co/papers/[^"/]+)"', text))
+    return sum(paper_upvotes(h) for h in sorted(links))
 
 
 def hf_total(text, kind):
@@ -191,6 +208,10 @@ def main():
                 n = hf_total(text, "datasets")
             elif kind == "sumhfdl-model":
                 n = hf_total(text, "models")
+            elif kind == "hfpaper":
+                n = paper_upvotes(target)
+            elif kind == "sumhfpaper":
+                n = paper_total(text)
             else:
                 n = hf_count(target, "likes" if kind.startswith("hflike") else "downloadsAllTime")
             svg = render(kind, n, old)

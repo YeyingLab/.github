@@ -36,6 +36,7 @@ RAW = r"https://raw\.githubusercontent\.com/YeyingLab/\.github/main/profile/badg
 STYLES = {
     "stars": ("Code ★", "f5c518", "logo=github&labelColor=24292f"),
     "hfdl-data": ("🤗 Data ⬇", "ffcc4d", "labelColor=24292f"),
+    "hfdl-prodata": ("🤗 Pro data ⬇", "ffcc4d", "labelColor=24292f"),
     "hfdl-model": ("🤗 Model ⬇", "ffcc4d", "labelColor=24292f"),
     "hflike-model": ("🤗 Model ♥", "ffcc4d", "labelColor=24292f"),
     "orgstars": ("GitHub stars", "f5c518", "logo=github&labelColor=24292f"),

@@ -74,7 +74,8 @@ def hf_count(href, field):
     return int(data.get(field) or 0)
 
 
-def render(kind, number):
+def render_shields(kind, number):
+    """Render a badge on shields.io (used only when no SVG exists yet)."""
     label, color, query = STYLES[kind]
     enc = lambda t: urllib.parse.quote(t.replace("-", "--").replace("_", "__"), safe="")
     url = f"https://img.shields.io/badge/{enc(label)}-{enc(f'{number:,}')}-{color}?{query}"
@@ -82,6 +83,64 @@ def render(kind, number):
     if not svg.lstrip().startswith(b"<svg"):
         raise ValueError(f"not an SVG: {url}")
     return svg
+
+
+# Glyph widths (px at 11px) that shields.io uses for numbers. The flat style
+# uses Verdana, the social style Helvetica bold.
+WIDTHS = {
+    "flat": {"digit": 6.9970703125, ",": 3.6376953125},
+    "social": {"digit": 6.1162109375, ",": 3.0576171875},
+}
+
+
+def text_length(msg, style):
+    w = sum(WIDTHS[style]["digit"] if c.isdigit() else WIDTHS[style][c] for c in msg)
+    w = int(w)  # shields floors the width, then makes it odd
+    return w if w % 2 else w + 1
+
+
+def sub_once(pattern, repl, s):
+    s2, n = re.subn(pattern, repl, s, count=1)
+    if n != 1:
+        raise ValueError(f"badge template mismatch: {pattern}")
+    return s2
+
+
+def render_local(svg, kind, number):
+    """Rewrite the number in an existing shields.io SVG, keeping its exact layout."""
+    svg = svg.decode("utf-8")
+    label = STYLES[kind][0]
+    old = re.search(r'aria-label="' + re.escape(label) + r': ([^"]+)"', svg).group(1)
+    new = f"{number:,}"
+    style = "social" if kind == "orgstars" else "flat"
+    px = text_length(new, style)
+    tl = px * 10  # SVG text is drawn at scale(.1)
+    if style == "flat":
+        lw = int(re.search(r'<rect width="(\d+)" height="20" fill="#', svg).group(1))
+        mw = px + 10
+        w = lw + mw
+        mx = lw * 10 + mw * 5 - 10
+        svg = sub_once(r'(<svg [^>]*?width=")\d+(")', rf"\g<1>{w}\g<2>", svg)
+        svg = sub_once(r'(<clipPath id="r"><rect width=")\d+(")', rf"\g<1>{w}\g<2>", svg)
+        svg = sub_once(r'(<rect x="' + str(lw) + r'" width=")\d+(")', rf"\g<1>{mw}\g<2>", svg)
+        svg = sub_once(r'(<rect width=")\d+(" height="20" fill="url\(#s\)"/>)', rf"\g<1>{w}\g<2>", svg)
+    else:
+        bw = px + 8
+        w = 61 + bw
+        mx = int((60.5 + bw / 2) * 10 - 5)
+        svg = sub_once(r'(<svg [^>]*?width=")\d+(")', rf"\g<1>{w}\g<2>", svg)
+        svg = sub_once(r'(<rect x="60\.5" y="\.5" width=")\d+(")', rf"\g<1>{bw}\g<2>", svg)
+    svg = svg.replace(f'aria-label="{label}: {old}"', f'aria-label="{label}: {new}"')
+    svg = svg.replace(f"<title>{label}: {old}</title>", f"<title>{label}: {new}</title>")
+    svg, n = re.subn(r'x="\d+"([^>]*?)textLength="\d+"([^>]*)>' + re.escape(old) + "<",
+                     lambda m: f'x="{mx}"{m.group(1)}textLength="{tl}"{m.group(2)}>{new}<', svg)
+    if n == 0:
+        raise ValueError("number text not found in badge")
+    return svg.encode("utf-8")
+
+
+def render(kind, number, existing):
+    return render_local(existing, kind, number) if existing else render_shields(kind, number)
 
 
 def kind_of(slug):
@@ -102,6 +161,8 @@ def main():
     changed, failed = 0, 0
     for slug, target in jobs:
         kind = kind_of(slug)
+        path = os.path.join(BADGES, slug + ".svg")
+        old = open(path, "rb").read() if os.path.exists(path) else None
         try:
             if kind == "stars":
                 n = github_stars(target)
@@ -109,13 +170,11 @@ def main():
                 n = org_stars(target)
             else:
                 n = hf_count(target, "likes" if kind.startswith("hflike") else "downloadsAllTime")
-            svg = render(kind, n)
+            svg = render(kind, n, old)
         except Exception as e:  # keep the old SVG
             failed += 1
             print(f"FAILED  {slug}: {e}", file=sys.stderr)
             continue
-        path = os.path.join(BADGES, slug + ".svg")
-        old = open(path, "rb").read() if os.path.exists(path) else None
         if svg != old:
             open(path, "wb").write(svg)
             changed += 1

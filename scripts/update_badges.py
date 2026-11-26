@@ -1,15 +1,19 @@
-"""Refresh the numbers in the static badges of profile/README.md.
+"""Refresh the number badges used by profile/README.md.
 
-Static badges always render, unlike live shields.io badges, which GitHub's
-image proxy drops when shields.io is slow. This script reads each badge's
-link to decide what to count, then rewrites only the number:
+GitHub's image proxy often times out on shields.io, so the README does not
+link to shields.io for numbers. Instead it shows SVG files stored in this repo
+(profile/badges/<slug>.svg). This script looks up each number, renders the badge
+once through shields.io, and saves the SVG. The README itself never changes.
 
-  <a href="https://github.com/OWNER/REPO"><img src=".../badge/Code ★-N-...">  -> GitHub stars
-  <a href="https://huggingface.co/...">  label with ⬇ -> all-time downloads
-  <a href="https://huggingface.co/...">  label with ♥ -> likes
-  [![Total stars](.../badge/Stars-N-...)](https://github.com/ORG)          -> org total stars
+The README tells the script what each badge counts:
 
-If a lookup fails, the old number stays. Run: python3 scripts/update_badges.py
+  <a href="https://github.com/OWNER/REPO"><img src=".../profile/badges/stars-....svg">     GitHub stars
+  <a href="https://huggingface.co/..."><img src=".../profile/badges/hfdl-data-....svg">     dataset downloads (all time)
+  <a href="https://huggingface.co/..."><img src=".../profile/badges/hfdl-model-....svg">    model downloads (all time)
+  <a href="https://huggingface.co/..."><img src=".../profile/badges/hflike-model-....svg">  model likes
+  [![Total stars](.../profile/badges/orgstars-ORG.svg)](https://github.com/ORG)             total org stars
+
+If a lookup or render fails, the old SVG stays. Run: python3 scripts/update_badges.py
 """
 import json
 import os
@@ -18,19 +22,35 @@ import sys
 import urllib.parse
 import urllib.request
 
-README = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "profile", "README.md")
+ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
+README = os.path.join(ROOT, "profile", "README.md")
+BADGES = os.path.join(ROOT, "profile", "badges")
 TOKEN = os.environ.get("GITHUB_TOKEN")
+RAW = r"https://raw\.githubusercontent\.com/YeyingLab/\.github/main/profile/badges/"
+
+STYLES = {
+    "stars": ("Code ★", "f5c518", "logo=github&labelColor=24292f"),
+    "hfdl-data": ("🤗 Data ⬇", "ffcc4d", "labelColor=24292f"),
+    "hfdl-model": ("🤗 Model ⬇", "ffcc4d", "labelColor=24292f"),
+    "hflike-model": ("🤗 Model ♥", "ffcc4d", "labelColor=24292f"),
+    "orgstars": ("Stars", "blue", "style=social&logo=github"),
+}
 
 
-def get_json(url):
-    headers = {"User-Agent": "yeyinglab-badge-updater", "Accept": "application/json"}
+def fetch(url, accept="application/json"):
+    headers = {"User-Agent": "yeyinglab-badge-updater", "Accept": accept}
     if TOKEN and url.startswith("https://api.github.com/"):
         headers["Authorization"] = f"Bearer {TOKEN}"
     with urllib.request.urlopen(urllib.request.Request(url, headers=headers), timeout=30) as r:
-        return json.load(r)
+        return r.read()
 
 
-def github_stars(repo):
+def get_json(url):
+    return json.loads(fetch(url))
+
+
+def github_stars(href):
+    repo = "/".join(urllib.parse.urlparse(href).path.strip("/").split("/")[:2])
     return int(get_json(f"https://api.github.com/repos/{repo}")["stargazers_count"])
 
 
@@ -46,75 +66,61 @@ def org_stars(org):
 
 def hf_count(href, field):
     path = urllib.parse.urlparse(href).path.strip("/").split("/")
-    if path[0] == "datasets":
-        kind, rid = "datasets", "/".join(path[1:3])
-    elif path[0] == "spaces":
-        kind, rid = "spaces", "/".join(path[1:3])
+    if path[0] in ("datasets", "spaces"):
+        kind, rid = path[0], "/".join(path[1:3])
     else:
         kind, rid = "models", "/".join(path[0:2])
     data = get_json(f"https://huggingface.co/api/{kind}/{rid}?expand%5B%5D={field}")
     return int(data.get(field) or 0)
 
 
-def fmt(n):
-    return f"{n:,}"
+def render(kind, number):
+    label, color, query = STYLES[kind]
+    enc = lambda t: urllib.parse.quote(t.replace("-", "--").replace("_", "__"), safe="")
+    url = f"https://img.shields.io/badge/{enc(label)}-{enc(f'{number:,}')}-{color}?{query}"
+    svg = fetch(url, accept="image/svg+xml")
+    if not svg.lstrip().startswith(b"<svg"):
+        raise ValueError(f"not an SVG: {url}")
+    return svg
 
 
-BADGE = re.compile(
-    r'(<a href="(?P<href>[^"]+)"><img src="https://img\.shields\.io/badge/'
-    r'(?P<label>(?:[^"?-]|--)+)-)(?P<msg>[0-9%C,.k]+)(?P<rest>-[0-9a-fA-F]{6}[^"]*")'
-)
-TOTAL = re.compile(
-    r'(\[!\[Total stars\]\(https://img\.shields\.io/badge/Stars-)(?P<msg>[0-9%C,.k]+)'
-    r'(?P<rest>-[^)]*\)\]\(https://github\.com/(?P<org>[^/)]+)\))'
-)
+def kind_of(slug):
+    for k in sorted(STYLES, key=len, reverse=True):
+        if slug.startswith(k + "-"):
+            return k
+    raise ValueError(f"unknown badge kind in slug {slug!r}")
 
 
 def main():
     text = open(README, encoding="utf-8").read()
-    changed, failed = [], []
+    jobs = [(m.group("slug"), m.group("href"))
+            for m in re.finditer(r'<a href="(?P<href>[^"]+)"><img src="' + RAW + r'(?P<slug>[a-z0-9._-]+)\.svg"', text)]
+    jobs += [(m.group("slug"), m.group("org"))
+             for m in re.finditer(r'\[!\[Total stars\]\(' + RAW + r'(?P<slug>[a-z0-9._-]+)\.svg\)\]\(https://github\.com/(?P<org>[^/)]+)\)', text)]
 
-    def update(m):
-        href = m.group("href")
-        label = urllib.parse.unquote(m.group("label").replace("--", "-"))
-        old = urllib.parse.unquote(m.group("msg"))
+    os.makedirs(BADGES, exist_ok=True)
+    changed, failed = 0, 0
+    for slug, target in jobs:
+        kind = kind_of(slug)
         try:
-            if href.startswith("https://github.com/"):
-                n = github_stars("/".join(urllib.parse.urlparse(href).path.strip("/").split("/")[:2]))
-            elif href.startswith("https://huggingface.co/"):
-                n = hf_count(href, "likes" if "♥" in label else "downloadsAllTime")
+            if kind == "stars":
+                n = github_stars(target)
+            elif kind == "orgstars":
+                n = org_stars(target)
             else:
-                return m.group(0)
-        except Exception as e:  # keep the old number
-            failed.append(f"{href}: {e}")
-            return m.group(0)
-        new = fmt(n)
-        if new != old:
-            changed.append(f"{href} [{label}]: {old} -> {new}")
-        return m.group(1) + urllib.parse.quote(new, safe="") + m.group("rest")
-
-    text = BADGE.sub(update, text)
-
-    def update_total(m):
-        old = urllib.parse.unquote(m.group("msg"))
-        try:
-            new = fmt(org_stars(m.group("org")))
-        except Exception as e:
-            failed.append(f"org {m.group('org')}: {e}")
-            return m.group(0)
-        if new != old:
-            changed.append(f"total stars: {old} -> {new}")
-        return m.group(1) + urllib.parse.quote(new, safe="") + m.group("rest")
-
-    text = TOTAL.sub(update_total, text)
-
-    for line in changed:
-        print("changed", line)
-    for line in failed:
-        print("FAILED ", line, file=sys.stderr)
-    if changed:
-        open(README, "w", encoding="utf-8").write(text)
-    print(f"{len(changed)} badge(s) changed, {len(failed)} lookup(s) failed")
+                n = hf_count(target, "likes" if kind.startswith("hflike") else "downloadsAllTime")
+            svg = render(kind, n)
+        except Exception as e:  # keep the old SVG
+            failed += 1
+            print(f"FAILED  {slug}: {e}", file=sys.stderr)
+            continue
+        path = os.path.join(BADGES, slug + ".svg")
+        old = open(path, "rb").read() if os.path.exists(path) else None
+        if svg != old:
+            open(path, "wb").write(svg)
+            changed += 1
+            print(f"updated {slug}: {n:,}")
+    print(f"{len(jobs)} badges, {changed} updated, {failed} failed")
 
 
 if __name__ == "__main__":

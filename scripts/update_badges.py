@@ -33,7 +33,9 @@ STYLES = {
     "hfdl-data": ("🤗 Data ⬇", "ffcc4d", "labelColor=24292f"),
     "hfdl-model": ("🤗 Model ⬇", "ffcc4d", "labelColor=24292f"),
     "hflike-model": ("🤗 Model ♥", "ffcc4d", "labelColor=24292f"),
-    "orgstars": ("Stars", "blue", "style=social&logo=github"),
+    "orgstars": ("GitHub stars", "f5c518", "logo=github&labelColor=24292f"),
+    "sumhfdl-data": ("🤗 Dataset downloads", "ffcc4d", "labelColor=24292f"),
+    "sumhfdl-model": ("🤗 Model downloads", "ffcc4d", "labelColor=24292f"),
 }
 
 
@@ -64,14 +66,32 @@ def org_stars(org):
         page += 1
 
 
-def hf_count(href, field):
+def hf_repos(href):
+    """(kind, repo id) pairs behind a Hugging Face link; a collection expands to its items."""
     path = urllib.parse.urlparse(href).path.strip("/").split("/")
+    if path[0] == "collections":
+        items = get_json(f"https://huggingface.co/api/collections/{'/'.join(path[1:3])}")["items"]
+        return [(i["type"] + "s", i["id"]) for i in items if i.get("type") in ("model", "dataset", "space")]
     if path[0] in ("datasets", "spaces"):
-        kind, rid = path[0], "/".join(path[1:3])
-    else:
-        kind, rid = "models", "/".join(path[0:2])
+        return [(path[0], "/".join(path[1:3]))]
+    return [("models", "/".join(path[0:2]))]
+
+
+def hf_value(kind, rid, field):
     data = get_json(f"https://huggingface.co/api/{kind}/{rid}?expand%5B%5D={field}")
     return int(data.get(field) or 0)
+
+
+def hf_count(href, field):
+    return sum(hf_value(kind, rid, field) for kind, rid in hf_repos(href))
+
+
+def hf_total(text, kind):
+    """All-time downloads summed over every distinct Hugging Face repo linked in the README."""
+    repos = set()
+    for href in set(re.findall(r'href="(https://huggingface\.co/(?!papers/)[^"]+)"', text)):
+        repos.update(hf_repos(href))
+    return sum(hf_value(k, rid, "downloadsAllTime") for k, rid in sorted(repos) if k == kind)
 
 
 def render_shields(kind, number):
@@ -112,7 +132,7 @@ def render_local(svg, kind, number):
     label = STYLES[kind][0]
     old = re.search(r'aria-label="' + re.escape(label) + r': ([^"]+)"', svg).group(1)
     new = f"{number:,}"
-    style = "social" if kind == "orgstars" else "flat"
+    style = "social" if 'id="llink"' in svg else "flat"
     px = text_length(new, style)
     tl = px * 10  # SVG text is drawn at scale(.1)
     if style == "flat":
@@ -153,9 +173,8 @@ def kind_of(slug):
 def main():
     text = open(README, encoding="utf-8").read()
     jobs = [(m.group("slug"), m.group("href"))
-            for m in re.finditer(r'<a href="(?P<href>[^"]+)"><img src="' + RAW + r'(?P<slug>[a-z0-9._-]+)\.svg"', text)]
-    jobs += [(m.group("slug"), m.group("org"))
-             for m in re.finditer(r'\[!\[Total stars\]\(' + RAW + r'(?P<slug>[a-z0-9._-]+)\.svg\)\]\(https://github\.com/(?P<org>[^/)]+)\)', text)]
+            for m in re.finditer(r'(?:<a href="(?P<href>[^"]+)">)?<img src="' + RAW + r'(?P<slug>[a-z0-9._-]+)\.svg"', text)]
+    jobs = list(dict.fromkeys(jobs))
 
     os.makedirs(BADGES, exist_ok=True)
     changed, failed = 0, 0
@@ -167,7 +186,11 @@ def main():
             if kind == "stars":
                 n = github_stars(target)
             elif kind == "orgstars":
-                n = org_stars(target)
+                n = org_stars(urllib.parse.urlparse(target).path.strip("/").split("/")[0])
+            elif kind == "sumhfdl-data":
+                n = hf_total(text, "datasets")
+            elif kind == "sumhfdl-model":
+                n = hf_total(text, "models")
             else:
                 n = hf_count(target, "likes" if kind.startswith("hflike") else "downloadsAllTime")
             svg = render(kind, n, old)

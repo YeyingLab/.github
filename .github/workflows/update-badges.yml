@@ -1,7 +1,7 @@
 name: Update badge numbers
 
-# Refreshes the GitHub star and Hugging Face download/like numbers in
-# profile/README.md once a day. Commits only when a number changed.
+# Refreshes the GitHub star and Hugging Face download/like badges
+# (profile/badges/*.svg) once a day. Commits only when a number changed.
 on:
   schedule:
     - cron: "17 2 * * *"
@@ -16,18 +16,19 @@ jobs:
     steps:
       - uses: actions/checkout@v5
 
-      - name: Refresh numbers
+      - name: Refresh badges
         run: python3 scripts/update_badges.py
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Commit if changed
         run: |
-          if git diff --quiet; then
+          if [ -z "$(git status --porcelain profile/badges)" ]; then
             echo "No number changed."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -am "Update star and download counts"
+          git add profile/badges
+          git commit -m "Update star and download counts"
           git push

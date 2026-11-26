@@ -4,7 +4,7 @@
 
 **Real-time interactive game world models.** *Press a key, and the model draws the next frame of the game world.*
 
-[Homepage](https://jinyeying.github.io/) · [Agentic gameplay](#agentic-gameplay-and-real-time-world-editing) · [Coding agents](#coding-agents-and-world-model-infrastructure) · [Action & language control](#spatially-consistent-action-and-language-control) · [NPC behavior](#state-aware-gameplay-and-npc-behavior) · [Agentic video](#beyond-games-agentic-video) · [Virtual try-on](#beyond-games-virtual-try-on) · [Join us](#join-us)
+[Homepage](https://jinyeying.github.io/) · [Agentic gameplay](#agentic-gameplay-and-real-time-world-editing) · [Coding agents](#coding-agents-and-world-model-infrastructure) · [Action & language control](#spatially-consistent-action-and-language-control) · [NPC behavior](#state-aware-gameplay-and-npc-behavior) · [Agentic video](#beyond-games-agentic-video) · [Virtual try-on](#beyond-games-virtual-try-on) · [Join us](https://zhuanlan.zhihu.com/p/2070315664162689467)
 
 **16 projects · 14 papers · 15 open-source codebases · 10 models · 7 datasets**
 
@@ -14,11 +14,9 @@
 
 https://github.com/user-attachments/assets/e070b091-178b-4faf-be39-83f433563232
 
-Yeying Lab is led by [Yeying Jin](https://jinyeying.github.io/), Staff Researcher at Tencent and Adjunct Faculty at NUS ECE.
-We build video world models that players can steer, edit and play in real time: agents that run the game while a video model renders it, action and language control that stays spatially consistent, and NPCs that read the game state and react to players.
-We also build open tools for world models, and take the same ideas beyond games to video storytelling and virtual try-on.
+Yeying Lab is led by [Yeying Jin](https://jinyeying.github.io/) (Tencent · NUS).
 
-> These are technical explorations, not commercial games.
+📢 We're hiring 6-month research interns in world models and coding agents, in Singapore and in China. [Details](https://zhuanlan.zhihu.com/p/2070315664162689467)
 
 ## Agentic gameplay and real-time world editing
 
@@ -72,8 +70,6 @@ We also build open tools for world models, and take the same ideas beyond games 
 </tr>
 </table>
 
-<sub>WorldFoundry is a joint project with OpenEnvision.</sub>
-
 ## Spatially consistent action and language control
 
 <table>
@@ -85,18 +81,18 @@ We also build open tools for world models, and take the same ideas beyond games 
 <p><a href="https://arxiv.org/abs/2605.23345">arXiv</a> · <a href="https://huggingface.co/papers/2605.23345"><img src="https://raw.githubusercontent.com/YeyingLab/.github/main/profile/badges/hfpaper-2605.23345.svg" alt="Hugging Face paper upvotes" align="absmiddle"></a> · <a href="https://yeyinglab.github.io/SCOPE/">Project</a> · <a href="https://github.com/YeyingLab/SCOPE"><img src="https://raw.githubusercontent.com/YeyingLab/.github/main/profile/badges/stars-yeyinglab-scope.svg" alt="GitHub stars" align="absmiddle"></a> · <a href="https://huggingface.co/zizhaotong/SCOPE"><img src="https://raw.githubusercontent.com/YeyingLab/.github/main/profile/badges/hfdl-model-zizhaotong-scope.svg" alt="Hugging Face model downloads" align="absmiddle"></a> · <a href="https://huggingface.co/collections/zizhaotong/crossfps"><img src="https://raw.githubusercontent.com/YeyingLab/.github/main/profile/badges/hfdl-data-collection-zizhaotong-crossfps.svg" alt="Hugging Face dataset downloads" align="absmiddle"></a></p>
 </td>
 <td width="50%" valign="top">
-<a href="https://teawhite.cn/ActionRoPE/"><img src="https://raw.githubusercontent.com/YeyingLab/.github/main/profile/assets/actionrope.gif" width="100%" alt="ActionRoPE demo"></a>
-<p><b>ActionRoPE</b>&nbsp; <img src="https://img.shields.io/badge/arXiv-2026-b31b1b?style=flat-square" alt="arXiv 2026" align="absmiddle"><br><sub><i>Action as Coordinates for Spatially Consistent Control in Planar-Camera Game World Models</i></sub></p>
-<p>Actions become world-coordinate rotary positions: 66% less revisit drift, on 1.3B–33B backbones.</p>
-<p><a href="https://arxiv.org/abs/2610.25861">arXiv</a> · <a href="https://huggingface.co/papers/2610.25861"><img src="https://raw.githubusercontent.com/YeyingLab/.github/main/profile/badges/hfpaper-2610.25861.svg" alt="Hugging Face paper upvotes" align="absmiddle"></a> · <a href="https://teawhite.cn/ActionRoPE/">Project</a> · <a href="https://github.com/YeyingLab/ActionRoPE"><img src="https://raw.githubusercontent.com/YeyingLab/.github/main/profile/badges/stars-yeyinglab-actionrope.svg" alt="GitHub stars" align="absmiddle"></a> · <a href="https://huggingface.co/teawhite/ActionRoPE"><img src="https://raw.githubusercontent.com/YeyingLab/.github/main/profile/badges/hflike-model-teawhite-actionrope.svg" alt="Hugging Face model likes" align="absmiddle"></a></p>
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top">
 <a href="https://danzer1xxxxchan.github.io/H3-World/"><img src="https://raw.githubusercontent.com/YeyingLab/.github/main/profile/assets/h3world.gif" width="100%" alt="H3-World demo"></a>
 <p><b>H3-World</b>&nbsp; <img src="https://img.shields.io/badge/arXiv-2026-b31b1b?style=flat-square" alt="arXiv 2026" align="absmiddle"><br><sub><i>Turning Language Understanding into World Control</i></sub></p>
 <p>Turns a video model's language understanding into character and camera control, training only 0.199% of parameters.</p>
 <p><a href="https://arxiv.org/abs/2609.01560">arXiv</a> · <a href="https://huggingface.co/papers/2609.01560"><img src="https://raw.githubusercontent.com/YeyingLab/.github/main/profile/badges/hfpaper-2609.01560.svg" alt="Hugging Face paper upvotes" align="absmiddle"></a> · <a href="https://danzer1xxxxchan.github.io/H3-World/">Project</a> · <a href="https://github.com/YeyingLab/H3-World"><img src="https://raw.githubusercontent.com/YeyingLab/.github/main/profile/badges/stars-yeyinglab-h3-world.svg" alt="GitHub stars" align="absmiddle"></a> · <a href="https://huggingface.co/DANNY621/H3-World"><img src="https://raw.githubusercontent.com/YeyingLab/.github/main/profile/badges/hflike-model-danny621-h3-world.svg" alt="Hugging Face model likes" align="absmiddle"></a></p>
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+<a href="https://teawhite.cn/ActionRoPE/"><img src="https://raw.githubusercontent.com/YeyingLab/.github/main/profile/assets/actionrope.gif" width="100%" alt="ActionRoPE demo"></a>
+<p><b>ActionRoPE</b>&nbsp; <img src="https://img.shields.io/badge/arXiv-2026-b31b1b?style=flat-square" alt="arXiv 2026" align="absmiddle"><br><sub><i>Action as Coordinates for Spatially Consistent Control in Planar-Camera Game World Models</i></sub></p>
+<p>Actions become world-coordinate rotary positions: 66% less revisit drift, on 1.3B–33B backbones.</p>
+<p><a href="https://arxiv.org/abs/2610.25861">arXiv</a> · <a href="https://huggingface.co/papers/2610.25861"><img src="https://raw.githubusercontent.com/YeyingLab/.github/main/profile/badges/hfpaper-2610.25861.svg" alt="Hugging Face paper upvotes" align="absmiddle"></a> · <a href="https://teawhite.cn/ActionRoPE/">Project</a> · <a href="https://github.com/YeyingLab/ActionRoPE"><img src="https://raw.githubusercontent.com/YeyingLab/.github/main/profile/badges/stars-yeyinglab-actionrope.svg" alt="GitHub stars" align="absmiddle"></a> · <a href="https://huggingface.co/teawhite/ActionRoPE"><img src="https://raw.githubusercontent.com/YeyingLab/.github/main/profile/badges/hflike-model-teawhite-actionrope.svg" alt="Hugging Face model likes" align="absmiddle"></a></p>
 </td>
 <td width="50%" valign="top">
 <a href="https://matrixteam-ai.github.io/pages/Incanation"><img src="https://raw.githubusercontent.com/YeyingLab/.github/main/profile/assets/incantation.gif" width="100%" alt="Incantation demo"></a>
@@ -114,26 +110,26 @@ We also build open tools for world models, and take the same ideas beyond games 
 <table>
 <tr>
 <td width="50%" valign="top">
-<a href="https://teawhite.cn/worldmind_projectpage/"><img src="https://raw.githubusercontent.com/YeyingLab/.github/main/profile/assets/worldmind.gif" width="100%" alt="WorldMind demo"></a>
-<p><b>WorldMind</b>&nbsp; <img src="https://img.shields.io/badge/arXiv-2026-b31b1b?style=flat-square" alt="arXiv 2026" align="absmiddle"><br><sub><i>Decoupled Game World Model for State-Aware NPC Behavior</i></sub></p>
-<p>The first decoupled game world model for NPC behavior, from understanding to generation; preferred in ~70% of comparisons.</p>
-<p><a href="https://arxiv.org/abs/2608.21439">arXiv</a> · <a href="https://huggingface.co/papers/2608.21439"><img src="https://raw.githubusercontent.com/YeyingLab/.github/main/profile/badges/hfpaper-2608.21439.svg" alt="Hugging Face paper upvotes" align="absmiddle"></a> · <a href="https://teawhite.cn/worldmind_projectpage/">Project</a> · <a href="https://github.com/YeyingLab/WorldMind"><img src="https://raw.githubusercontent.com/YeyingLab/.github/main/profile/badges/stars-yeyinglab-worldmind.svg" alt="GitHub stars" align="absmiddle"></a></p>
-</td>
-<td width="50%" valign="top">
 <a href="https://inv-wzq.github.io/ReactiveGWM/"><img src="https://raw.githubusercontent.com/YeyingLab/.github/main/profile/assets/reactivegwm.gif" width="100%" alt="ReactiveGWM demo"></a>
 <p><b>ReactiveGWM</b>&nbsp; <img src="https://img.shields.io/badge/arXiv-2026-b31b1b?style=flat-square" alt="arXiv 2026" align="absmiddle"><br><sub><i>Flexible Control and NPC Reactivity in Game World Models</i></sub></p>
 <p>NPCs follow Offense / Defense / Control strategies and transfer zero-shot to unseen games.</p>
 <p><a href="https://arxiv.org/abs/2605.15256">arXiv</a> · <a href="https://huggingface.co/papers/2605.15256"><img src="https://raw.githubusercontent.com/YeyingLab/.github/main/profile/badges/hfpaper-2605.15256.svg" alt="Hugging Face paper upvotes" align="absmiddle"></a> · <a href="https://inv-wzq.github.io/ReactiveGWM/">Project</a> · <a href="https://github.com/YeyingLab/ReactiveGWM"><img src="https://raw.githubusercontent.com/YeyingLab/.github/main/profile/badges/stars-yeyinglab-reactivegwm.svg" alt="GitHub stars" align="absmiddle"></a> · <a href="https://huggingface.co/INV-WZQ/ReactiveGWM-Models"><img src="https://raw.githubusercontent.com/YeyingLab/.github/main/profile/badges/hflike-model-inv-wzq-reactivegwm-models.svg" alt="Hugging Face model likes" align="absmiddle"></a> · <a href="https://huggingface.co/datasets/INV-WZQ/ReactiveGWM-Datasets"><img src="https://raw.githubusercontent.com/YeyingLab/.github/main/profile/badges/hfdl-data-inv-wzq-reactivegwm-datasets.svg" alt="Hugging Face dataset downloads" align="absmiddle"></a></p>
 </td>
-</tr>
-<tr>
-<td width="50%" valign="middle">
+<td width="50%" valign="top">
 <a href="https://jimntu.github.io/stateplay_page/"><img src="https://raw.githubusercontent.com/YeyingLab/.github/main/profile/assets/stateplay.gif" width="100%" alt="StatePlay demo"></a>
-</td>
-<td width="50%" valign="middle">
 <p><b>StatePlay</b>&nbsp; <img src="https://img.shields.io/badge/arXiv-2026-b31b1b?style=flat-square" alt="arXiv 2026" align="absmiddle"><br><sub><i>State-Aware Game World Models for Mechanics-Consistent Generation</i></sub></p>
 <p>Generates frames together with game states (health, meters, timers): +18.6% mechanics fidelity.</p>
 <p><a href="https://arxiv.org/abs/2607.26754">arXiv</a> · <a href="https://huggingface.co/papers/2607.26754"><img src="https://raw.githubusercontent.com/YeyingLab/.github/main/profile/badges/hfpaper-2607.26754.svg" alt="Hugging Face paper upvotes" align="absmiddle"></a> · <a href="https://jimntu.github.io/stateplay_page/">Project</a> · <a href="https://github.com/Jimntu/StatePlay"><img src="https://raw.githubusercontent.com/YeyingLab/.github/main/profile/badges/stars-jimntu-stateplay.svg" alt="GitHub stars" align="absmiddle"></a> · <a href="https://huggingface.co/onepiece1999/StatePlay"><img src="https://raw.githubusercontent.com/YeyingLab/.github/main/profile/badges/hflike-model-onepiece1999-stateplay.svg" alt="Hugging Face model likes" align="absmiddle"></a> · <a href="https://huggingface.co/datasets/onepiece1999/StatePlay-Dataset"><img src="https://raw.githubusercontent.com/YeyingLab/.github/main/profile/badges/hfdl-data-onepiece1999-stateplay-dataset.svg" alt="Hugging Face dataset downloads" align="absmiddle"></a></p>
+</td>
+</tr>
+<tr>
+<td width="50%" valign="middle">
+<a href="https://teawhite.cn/worldmind_projectpage/"><img src="https://raw.githubusercontent.com/YeyingLab/.github/main/profile/assets/worldmind.gif" width="100%" alt="WorldMind demo"></a>
+</td>
+<td width="50%" valign="middle">
+<p><b>WorldMind</b>&nbsp; <img src="https://img.shields.io/badge/arXiv-2026-b31b1b?style=flat-square" alt="arXiv 2026" align="absmiddle"><br><sub><i>Decoupled Game World Model for State-Aware NPC Behavior</i></sub></p>
+<p>The first decoupled game world model for NPC behavior, from understanding to generation; preferred in ~70% of comparisons.</p>
+<p><a href="https://arxiv.org/abs/2608.21439">arXiv</a> · <a href="https://huggingface.co/papers/2608.21439"><img src="https://raw.githubusercontent.com/YeyingLab/.github/main/profile/badges/hfpaper-2608.21439.svg" alt="Hugging Face paper upvotes" align="absmiddle"></a> · <a href="https://teawhite.cn/worldmind_projectpage/">Project</a> · <a href="https://github.com/YeyingLab/WorldMind"><img src="https://raw.githubusercontent.com/YeyingLab/.github/main/profile/badges/stars-yeyinglab-worldmind.svg" alt="GitHub stars" align="absmiddle"></a></p>
 </td>
 </tr>
 </table>
@@ -171,7 +167,3 @@ We also build open tools for world models, and take the same ideas beyond games 
 </td>
 </tr>
 </table>
-
-## Join us
-
-We're hiring 6-month research interns in world models and coding agents, in Singapore and through [Tencent campus recruiting](https://join.qq.com/post_detail.html?postid=1210646470286783493) in China. [Details](https://zhuanlan.zhihu.com/p/2070315664162689467)

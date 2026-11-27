@@ -18,7 +18,8 @@ The README tells the script what each badge counts:
   <img src=".../profile/badges/sumhfdl-model-....svg">   all-time model downloads over every HF link in the README
   <img src=".../profile/badges/sumhfpaper-....svg">      paper upvotes over every HF paper link in the README
 
-If a lookup or render fails, the old SVG stays. Run: python3 scripts/update_badges.py
+If a lookup or render fails, the old SVG stays. SVGs the README no longer uses
+are deleted. Run: python3 scripts/update_badges.py
 """
 import json
 import os
@@ -234,7 +235,21 @@ def main():
             open(path, "wb").write(svg)
             changed += 1
             print(f"updated {slug}: {n:,}")
-    print(f"{len(jobs)} badges, {changed} updated, {failed} failed")
+    removed = remove_unused({slug for slug, _ in jobs})
+    print(f"{len(jobs)} badges, {changed} updated, {failed} failed, {removed} unused removed")
+
+
+def remove_unused(used):
+    """Delete badge SVGs the README no longer shows (e.g. after a repo moved)."""
+    if len(used) < 10:  # README not parsed as expected; delete nothing
+        return 0
+    removed = 0
+    for name in sorted(os.listdir(BADGES)):
+        if name.endswith(".svg") and name[:-4] not in used:
+            os.remove(os.path.join(BADGES, name))
+            removed += 1
+            print(f"removed unused {name}")
+    return removed
 
 
 if __name__ == "__main__":

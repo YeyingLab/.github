@@ -4,11 +4,11 @@
 
 **Real-time interactive game world models.** *Press a key, and the model draws the next frame of the game world.*
 
-[Homepage](https://jinyeying.github.io/) · [Agentic gameplay](#agentic-gameplay-and-real-time-world-editing) · [Coding agents](#coding-agents-and-world-model-infrastructure) · [Action & language control](#spatially-consistent-action-and-language-control) · [NPC behavior](#state-aware-gameplay-and-npc-behavior) · [Agentic video](#beyond-games-agentic-video) · [Virtual try-on](#beyond-games-virtual-try-on) · [Join us](https://zhuanlan.zhihu.com/p/2070315664162689467)
+[Homepage](https://jinyeying.github.io/) · [🤗 Hugging Face](https://huggingface.co/collections/yeyingjin/yeying-lab-6b09480206e083c253ed2163) · [Agentic gameplay](#agentic-gameplay-and-real-time-world-editing) · [Coding agents](#coding-agents-and-world-model-infrastructure) · [Action & language control](#spatially-consistent-action-and-language-control) · [NPC behavior](#state-aware-gameplay-and-npc-behavior) · [Agentic video](#beyond-games-agentic-video) · [Virtual try-on](#beyond-games-virtual-try-on) · [Join us](https://zhuanlan.zhihu.com/p/2070315664162689467)
 
 **16 projects · 14 papers · 15 open-source codebases · 11 models · 9 datasets**
 
-<a href="https://github.com/YeyingLab"><img src="https://raw.githubusercontent.com/YeyingLab/.github/main/profile/badges/orgstars-yeyinglab.svg" alt="Total GitHub stars"></a> <img src="https://raw.githubusercontent.com/YeyingLab/.github/main/profile/badges/sumhfdl-data-yeyinglab.svg" alt="Total Hugging Face dataset downloads"> <img src="https://raw.githubusercontent.com/YeyingLab/.github/main/profile/badges/sumhfdl-model-yeyinglab.svg" alt="Total Hugging Face model downloads"> <img src="https://raw.githubusercontent.com/YeyingLab/.github/main/profile/badges/sumhfpaper-yeyinglab.svg" alt="Total Hugging Face paper upvotes">
+<a href="https://github.com/YeyingLab"><img src="https://raw.githubusercontent.com/YeyingLab/.github/main/profile/badges/orgstars-yeyinglab.svg" alt="Total GitHub stars"></a> <a href="https://huggingface.co/collections/yeyingjin/yeying-lab-6b09480206e083c253ed2163"><img src="https://raw.githubusercontent.com/YeyingLab/.github/main/profile/badges/sumhfdl-data-yeyinglab.svg" alt="Total Hugging Face dataset downloads"></a> <a href="https://huggingface.co/collections/yeyingjin/yeying-lab-6b09480206e083c253ed2163"><img src="https://raw.githubusercontent.com/YeyingLab/.github/main/profile/badges/sumhfdl-model-yeyinglab.svg" alt="Total Hugging Face model downloads"></a> <a href="https://huggingface.co/collections/yeyingjin/yeying-lab-6b09480206e083c253ed2163"><img src="https://raw.githubusercontent.com/YeyingLab/.github/main/profile/badges/sumhfpaper-yeyinglab.svg" alt="Total Hugging Face paper upvotes"></a>
 
 </div>
 
@@ -16,7 +16,7 @@ https://github.com/user-attachments/assets/e070b091-178b-4faf-be39-83f433563232
 
 Yeying Lab is led by [Yeying Jin](https://jinyeying.github.io/) (Tencent · NUS).
 
-📢 We're hiring 6-month research interns in world models and coding agents, in Singapore and in China. [Details](https://zhuanlan.zhihu.com/p/2070315664162689467)
+📢 We're hiring 6-month research interns in world models and coding agents, in Singapore and in China. [Details](https://zhuanlan.zhihu.com/p/2070315664162689467) · [Apply on LinkedIn (Singapore, world models)](https://www.linkedin.com/jobs/view/4471500956/)
 
 ## Agentic gameplay and real-time world editing
 

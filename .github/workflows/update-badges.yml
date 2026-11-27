@@ -1,10 +1,11 @@
 name: Update badge numbers
 
 # Refreshes the GitHub star and Hugging Face download/like badges
-# (profile/badges/*.svg) once a day. Commits only when a number changed.
+# (profile/badges/*.svg) twice a day (02:17 and 14:17 UTC), so one skipped
+# scheduled run does not leave the numbers stale. Commits only when a number changed.
 on:
   schedule:
-    - cron: "17 2 * * *"
+    - cron: "17 2,14 * * *"
   workflow_dispatch:
 
 permissions:

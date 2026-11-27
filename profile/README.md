@@ -40,7 +40,7 @@ Yeying Lab is led by [Yeying Jin](https://jinyeying.github.io/) (Tencent · NUS)
 <a href="https://yeyinglab.github.io/UnboundRun/"><img src="https://raw.githubusercontent.com/YeyingLab/.github/main/profile/assets/unboundrun.gif" width="100%" alt="UnboundRun demo"></a>
 <p><b>UnboundRun</b>&nbsp; <img src="https://img.shields.io/badge/Coming-soon-f0883e?style=flat-square" alt="Coming soon" align="absmiddle"></p>
 <p>Endless parkour in many art styles, rendered live at 40 fps.</p>
-<p><a href="https://yeyinglab.github.io/UnboundRun/">Project</a> · <i>Code coming soon</i></p>
+<p><a href="https://yeyinglab.github.io/UnboundRun/">Project</a> · <a href="https://github.com/YeyingLab/UnboundRun"><img src="https://raw.githubusercontent.com/YeyingLab/.github/main/profile/badges/stars-yeyinglab-unboundrun.svg" alt="GitHub stars" align="absmiddle"></a> · <i>Code coming soon</i></p>
 </td>
 <td width="50%" valign="top">
 <a href="https://jimntu.github.io/gamedirector/"><img src="https://raw.githubusercontent.com/YeyingLab/.github/main/profile/assets/gamedirector.gif" width="100%" alt="GameDirector demo"></a>

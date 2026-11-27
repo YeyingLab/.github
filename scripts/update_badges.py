@@ -104,11 +104,21 @@ def paper_total(text):
     return sum(paper_upvotes(h) for h in sorted(links))
 
 
+EXTRA = os.path.join(ROOT, "scripts", "hf_repos.txt")
+
+
 def hf_total(text, kind):
-    """All-time downloads summed over every distinct Hugging Face repo linked in the README."""
+    """All-time downloads summed over every distinct Hugging Face repo linked in the README,
+    plus the extra lab repos listed in scripts/hf_repos.txt."""
     repos = set()
     for href in set(re.findall(r'href="(https://huggingface\.co/(?!papers/)[^"]+)"', text)):
         repos.update(hf_repos(href))
+    if os.path.exists(EXTRA):
+        for line in open(EXTRA, encoding="utf-8"):
+            line = line.strip()
+            if line and not line.startswith("#"):
+                k, rid = line.split("/", 1)
+                repos.add((k, rid))
     return sum(hf_value(k, rid, "downloadsAllTime") for k, rid in sorted(repos) if k == kind)
 
 

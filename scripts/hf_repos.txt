@@ -1,0 +1,77 @@
+# Extra Hugging Face repos counted in the README's total download badges,
+# in addition to every Hugging Face repo the README links to.
+# One per line: models/OWNER/NAME or datasets/OWNER/NAME. Lines starting with # are ignored.
+# Scope: lab game-world-model, coding-agent, agentic-video and try-on work.
+# Left out on purpose: students' robotics/VLA repos (correctvla_data, failsafe_data,
+# maniskill_ft, *_for_openvla, openvla_ckpt), 2023 SD LoRAs, Free-TryOn (2024),
+# and MatrixTeam repos outside Incantation.
+
+# Models
+models/teawhite/ActionRoPE-internal
+models/teawhite/ActionRoPE
+models/teawhite/maliang
+models/onepiece1999/StatePlay
+models/onepiece1999/GameDirector
+models/DANNY621/H3-World
+models/INV-WZQ/ReactiveGWM-Models
+models/INV-WZQ/ReactiveGWM-v2-Models
+models/yuzhewu207/Wizard
+models/zizhaotong/SCOPE
+models/15y6u87/MaLiang
+models/zwpro/UniFit
+models/zwpro/boomvvt
+models/MatrixTeam/Incantation_preview_margit
+
+# Datasets: GameCrafter, ActionRoPE, WorldMind, MaLiang (Zhiyang Deng)
+datasets/teawhite/GameCrafter
+datasets/teawhite/GameCrafter-Parkour
+datasets/teawhite/GameCrafter-Parkour-v3
+datasets/teawhite/GameCrafter-Data-v10
+datasets/teawhite/diablo-reskin-20h
+datasets/teawhite/nrftw-boss-arena
+datasets/teawhite/EYBX-processed
+datasets/teawhite/grid
+
+# Datasets: StatePlay, GameDirector (Zijun Lin)
+datasets/onepiece1999/StatePlay-Dataset
+datasets/onepiece1999/GameDirector-Training-Data
+datasets/onepiece1999/nrftw
+
+# Datasets: H3-World (Danze Chen)
+datasets/DANNY621/eldenring_VA
+datasets/DANNY621/SF_Baseline_Test
+datasets/DANNY621/SF3_Baseline_Test
+
+# Datasets: ReactiveGWM (Zeqing Wang)
+datasets/INV-WZQ/ReactiveGWM-Datasets
+datasets/INV-WZQ/ReactiveGWM-v2-Datasets
+
+# Datasets: Wizard (Yuzhe Wu)
+datasets/yuzhewu207/wizard
+datasets/yuzhewu207/wizard-precoded
+datasets/yuzhewu207/vrising4stage
+datasets/yuzhewu207/vrisingroam
+datasets/yuzhewu207/BOSSFIGHT
+datasets/yuzhewu207/BOSSFIGHTTOKEN
+datasets/yuzhewu207/bossfight-au
+datasets/yuzhewu207/EYBXROAM
+datasets/yuzhewu207/EYBXBOSS
+datasets/yuzhewu207/EYBX22
+datasets/yuzhewu207/EYBX33PLACE2
+
+# Datasets: SCOPE (Zizhao Tong)
+datasets/zizhaotong/CrossFPS-train
+datasets/zizhaotong/CrossFPS-val
+datasets/zizhaotong/BattleField
+
+# Datasets: MaLiang (Shushan Xu)
+datasets/15y6u87/MaLiang-Data
+datasets/15y6u87/game-bot
+datasets/15y6u87/game-recordings-2p5d
+
+# Datasets: BooM-VVT / UniFit (Wei Zhang)
+datasets/zwpro/OmniView
+
+# Datasets: Incantation (MatrixTeam)
+datasets/MatrixTeam/incantation-elden-ring-scenes
+datasets/MatrixTeam/incantation_pro_dataset
